@@ -10,7 +10,7 @@ variable "resource_server_identifier" {
 variable "resource_server_scopes" {
   type = map(string)
   default = {
-    get_product    = "Read product details"
+    read_product    = "Read product details"
     create_product = "Create a new product"
     delete_product = "Delete a product"
   }
