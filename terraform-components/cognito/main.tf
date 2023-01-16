@@ -1,4 +1,4 @@
-resource "aws_cognito_user_pool" "product_user_pool" {
+resource "aws_cognito_user_pool" "user_pool" {
   name = "${local.app_prefix}${terraform.workspace}-pool"
 
   username_attributes      = ["email"]
@@ -29,7 +29,7 @@ resource "aws_cognito_user_pool" "product_user_pool" {
 
 resource "aws_cognito_user_pool_domain" "user_pool_domain" {
   domain       = random_string.domain_pool_name.result
-  user_pool_id = aws_cognito_user_pool.product_user_pool.id
+  user_pool_id = aws_cognito_user_pool.user_pool.id
 }
 
 resource "random_string" "domain_pool_name" {
@@ -41,7 +41,7 @@ resource "random_string" "domain_pool_name" {
 
 resource "aws_cognito_user_pool_client" "user_pool_client" {
   name                                 = "${local.app_prefix}${terraform.workspace}-client"
-  user_pool_id                         = aws_cognito_user_pool.product_user_pool.id
+  user_pool_id                         = aws_cognito_user_pool.user_pool.id
   allowed_oauth_flows                  = ["client_credentials"]
   allowed_oauth_flows_user_pool_client = true
   allowed_oauth_scopes = [for k, v in var.resource_server_scopes : "${var.resource_server_identifier}/${k}"]
@@ -54,7 +54,7 @@ resource "aws_cognito_user_pool_client" "user_pool_client" {
 resource "aws_cognito_resource_server" "resource_server" {
   name         = "${local.app_prefix}${terraform.workspace}"
   identifier   = var.resource_server_identifier
-  user_pool_id = aws_cognito_user_pool.product_user_pool.id
+  user_pool_id = aws_cognito_user_pool.user_pool.id
 
   dynamic "scope" {
     for_each = var.resource_server_scopes
