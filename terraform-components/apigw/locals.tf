@@ -4,5 +4,5 @@ locals {
     created_by = "terraform"
   }
 
-  app_prefix = "aws-cognito-demos-apigw-"
+  app_prefix = "apigw-cognito-oauth2-apigw-"
 }

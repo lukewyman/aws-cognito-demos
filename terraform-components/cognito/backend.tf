@@ -12,7 +12,7 @@ terraform {
     organization = "spikes"
 
     workspaces {
-      prefix = "aws-cognito-demos-cognito-"
+      prefix = "apigw-cognito-oauth2-cognito-"
     }
   }
 }

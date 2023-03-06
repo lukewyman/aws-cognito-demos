@@ -14,5 +14,5 @@ variable "the_lambdas" {
 variable "user_pool_arn" {
   description = "ARN for Cognito User Pool to secure the API"
   type = string 
-  default = "arn:aws:cognito-idp:us-west-2:919980474747:userpool/us-west-2_TBtF80BOM"
+  default = "arn:aws:cognito-idp:us-west-2:919980474747:userpool/us-west-2_tGTXr24zv"
 }

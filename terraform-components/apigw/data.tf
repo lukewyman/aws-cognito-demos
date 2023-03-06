@@ -7,7 +7,7 @@ data "terraform_remote_state" "lambdas_for_cognito" {
   config = {
     organization = "spikes"
     workspaces = {
-      name = "aws-cognito-demos-lambda-poc"
+      name = "apigw-cognito-oauth2-lambda-${terraform.workspace}"
     }
   }
 }

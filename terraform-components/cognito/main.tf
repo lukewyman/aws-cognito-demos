@@ -52,7 +52,7 @@ resource "aws_cognito_user_pool_client" "user_pool_client" {
 }
 
 resource "aws_cognito_resource_server" "resource_server" {
-  name         = "${local.app_prefix}${terraform.workspace}"
+  name         = "${local.app_prefix}${terraform.workspace}-resource-server"
   identifier   = var.resource_server_identifier
   user_pool_id = aws_cognito_user_pool.user_pool.id
 

@@ -16,7 +16,7 @@ terraform {
     organization = "spikes"
 
     workspaces {
-      prefix = "aws-cognito-demos-lambda-"
+      prefix = "apigw-cognito-oauth2-lambda-"
     }
   }
 }
